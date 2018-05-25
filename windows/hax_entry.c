@@ -733,7 +733,7 @@ VOID HaxUnloadDriver(__in PDRIVER_OBJECT DriverObject)
     RtlInitUnicodeString(&ntWin32NameString, DOS_DEVICE_NAME);
     IoDeleteSymbolicLink(&ntWin32NameString);
     IoDeleteDevice(HaxDeviceObject);
-    hax_log("Unload the driver\n");
+    hax_warning("Unload the HAXM driver\n");
     hax_host_exit();
     write_event(HaxDriverUnloaded, DriverObject, NULL, 0);
     HaxDeviceObject = NULL;
